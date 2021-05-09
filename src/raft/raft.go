@@ -200,6 +200,10 @@ func (rf *Raft) GetLastIndex() int{
 	return rf.log[len(rf.log) - 1].LogIndex
 }
 
+func (rf *Raft) IsLeader() bool {
+	return rf.state == STATE_LEADER
+}
+
 func (rf *Raft) RequestVote(args RequestVoteArgs,
 							reply *RequestVoteReply) {
 	// Your code here (2A, 2B).
